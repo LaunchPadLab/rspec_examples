@@ -1,42 +1,21 @@
-<!-- # <app_name> -->
+# Testing with RSpec
 
-## Getting Started
-### Initial Project Setup
-If you created this project, instructions for setting up GitHub, Heroku, and other integrations can be found in the **[Project Setup Checklist](PROJECT_SETUP_CHECKLIST.md)**.
+## Steps to Recreate
 
-### Running in Development
-<!-- TODO: update the below accordingly -->
-- `git clone git@github.com:LaunchPadLab/<project_name>.git`
-- `cd <project_name>`
-- `bundle install`
-- `load_secrets`
-- `bundle exec rake db:create db:migrate db:seed`
-- `rails server`
-- `open localhost:3000`
+```term
+$ rails_template new order_manager
+$ rails g model Order total:integer taxes:integer shipping:integer subtotal:integer coupon_code:string
+$ rails g model Item name:string price:integer quantity:integer order:references
+$ rails g model Coupon code:string amount:integer
+$ bundle exec rake db:migrate
+```
 
-<!--
-  TODO: Additional notes about your app
-This application supports both server rendering and client rendering of react components from within `ERB` templates.
-Starting the application with `foreman start -f Profile.dev` starts the rails server as well as the webpack-dev-server that will rebuild the javascript assets on change.
-It's possible that a page refresh completes BEFORE webpack finishes, just refresh again or check the log to make sure the rebuild has completed if you don't see your changes right away.
-If this becomes an issue we can revisit to either optimize the build or add HMR.
- -->
-### Development Workflow
+## Model specs
 
-#### Committing
-Pull requests to the `dev` branch will trigger review apps in Heroku.
-The `staging` branch will auto-deploy to the *staging* environment on Heroku.
-The `master` branch can then be deployed to *production* after successful QA.
+1. Show how factory should build the "minimally valid object" (add validation rules to order model)
+2. Show shoulda matchers (https://github.com/thoughtbot/shoulda-matchers)
+3. Write a method and test it (discount_amount)
+4. Create a service class and test it (CalculateOrderTotals)
 
-#### Testing
-All Ruby/Rails unit tests must pass for a PR to be merged. They can be run locally with:
 
-- Ruby/Rails unit tests: `bundle exec rspec`
-
-#### Linting
-The project is set up to lint ruby, <!-- javascript and scss (`TODO`) --> so its advised that you have this integrated in your editor.
-Currently, linting errors will not block a PR merge, but this may change in the future.
-
-You can run these manually with:
-- Ruby: `rubocop` (if installed globally with `gem install rubocop`)
-<!-- + JavaScript: `npm run eslint` -->
+2. Create spec for the service class
