@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :price
       t.integer :quantity
+      t.references :order, foreign_key: true
 
       t.timestamps
     end

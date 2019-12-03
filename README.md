@@ -5,7 +5,7 @@
 ```term
 $ rails_template new order_manager
 $ rails g model Order total:integer taxes:integer shipping:integer subtotal:integer coupon_code:string
-$ rails g model Item name:string price:integer quantity:integer
+$ rails g model Item name:string price:integer quantity:integer order:references
 $ rails g model Coupon code:string amount:integer
 $ bundle exec rake db:migrate
 ```

@@ -26,8 +26,10 @@ ActiveRecord::Schema.define(version: 2019_12_03_151455) do
     t.string "name"
     t.integer "price"
     t.integer "quantity"
+    t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_items_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -50,4 +52,5 @@ ActiveRecord::Schema.define(version: 2019_12_03_151455) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "items", "orders"
 end
