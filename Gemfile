@@ -17,7 +17,7 @@ gem 'decanter', '~> 1.0'
 gem 'bcrypt', '~> 3.0'
 gem 'active_model_serializers', '~> 0.10'
 
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 
 
 
